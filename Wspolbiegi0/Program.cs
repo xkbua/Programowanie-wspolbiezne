@@ -1,20 +1,17 @@
-﻿namespace Wspolbiegi0
-{
-    public class Addition
-    {
-        public Addition()
-        {
-        }
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection.Metadata.Ecma335;
+using System.Text;
+using System.Threading.Tasks;
 
-        public int Add(int[] array)
+namespace Logic
+{
+    class Program
+    {
+        static void Main(string[] args)
         {
-            int resault = 0;
-            for (int i = 0; i < array.Length; i++)
-            {
-                resault += array[i];
-            }
-            return resault;
+            Console.WriteLine("Hello World!");
         }
     }
-
 }

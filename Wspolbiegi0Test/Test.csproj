@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Wspolbiegi0\Wspolbiegi0.csproj" />
+    <ProjectReference Include="..\Wspolbiegi0\Logic.csproj" />
   </ItemGroup>
 
   <ItemGroup>
