@@ -24,8 +24,8 @@ namespace Logic
             XPosition = rand.Next(0, maxXPosition);
             YPosition = rand.Next(0, maxYPosition);
 
-            XVelocity = rand.Next(5, 10);
-            YVelocity = rand.Next(5, 10);
+            XVelocity = rand.Next(0, 5);
+            YVelocity = rand.Next(0, 5);
         }
 
         public Ball(string id, float xPosition, float yPosition, float xVelocity, float yVelocity)

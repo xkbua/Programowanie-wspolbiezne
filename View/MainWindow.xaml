@@ -5,8 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:View"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="490" Width="770">
     <Grid>
+        <Button Content="Start" Margin="0,0,551,166" Click="Button_Click" Height="42" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="120"/>
+        <TextBox Name="NumberTextBox" Margin="0,175,551,0" TextWrapping="Wrap" Text="3" Height="42" VerticalAlignment="Top" HorizontalAlignment="Right" Width="120"/>
+        <Canvas Name="MyCanvas" Width="175" Margin="385,154,0,0" HorizontalAlignment="Left" Height="175" VerticalAlignment="Top"/>
+        <Rectangle Canvas.Left="10" Stroke="Black" Canvas.Top="10" Margin="385,154,0,0" Height="185" VerticalAlignment="Top" HorizontalAlignment="Left" Width="185"/>
 
     </Grid>
 </Window>
