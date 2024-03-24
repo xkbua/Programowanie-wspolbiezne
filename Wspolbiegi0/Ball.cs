@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Logic
 {
-    public class Ball
+    public class BallLogic
 
     {
         public string Id { get; set; }
@@ -15,8 +15,8 @@ namespace Logic
         public float YPosition { get; set; }
         public float XVelocity { get; set; }
         public float YVelocity { get; set; }
-
-        public Ball(string id, int maxXPosition, int maxYPosition)
+    
+        public BallLogic(string id, int maxXPosition, int maxYPosition)
         {
             Random rand = new Random();
 
@@ -24,11 +24,11 @@ namespace Logic
             XPosition = rand.Next(0, maxXPosition);
             YPosition = rand.Next(0, maxYPosition);
 
-            XVelocity = rand.Next(0, 5);
-            YVelocity = rand.Next(0, 5);
+            XVelocity = rand.Next(-5, 5);
+            YVelocity = rand.Next(-5, 5);
         }
 
-        public Ball(string id, float xPosition, float yPosition, float xVelocity, float yVelocity)
+        public BallLogic(string id, float xPosition, float yPosition, float xVelocity, float yVelocity)
         {
             Id = id;
             XPosition = xPosition;

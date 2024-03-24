@@ -5,12 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:View"
         mc:Ignorable="d"
-        Title="MainWindow" Height="490" Width="770">
+        Title="MainWindow" Height="350" Width="500">
     <Grid>
-        <Button Content="Start" Margin="0,0,551,166" Click="Button_Click" Height="42" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="120"/>
-        <TextBox Name="NumberTextBox" Margin="0,175,551,0" TextWrapping="Wrap" Text="3" Height="42" VerticalAlignment="Top" HorizontalAlignment="Right" Width="120"/>
-        <Canvas Name="MyCanvas" Width="175" Margin="385,154,0,0" HorizontalAlignment="Left" Height="175" VerticalAlignment="Top"/>
-        <Rectangle Canvas.Left="10" Stroke="Black" Canvas.Top="10" Margin="385,154,0,0" Height="185" VerticalAlignment="Top" HorizontalAlignment="Left" Width="185"/>
+        <Button Content="Start" Margin="-200,0,0,0" Click="Button_Click" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center" Width="60"/>
+        <TextBox Name="NumberTextBox" Margin="-200,0,0,100" TextWrapping="Wrap" Text="3" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center" Width="60" TextAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Canvas Name="MyCanvas" Width="175" Margin="0,-10,-110,0" HorizontalAlignment="Center" Height="175" VerticalAlignment="Center"/>
+        <Rectangle Canvas.Left="10" Stroke="Black" Canvas.Top="10" Margin="0,0,-120,0" Height="185" VerticalAlignment="Center" HorizontalAlignment="Center" Width="185"/>
+        <Button Content="Stop" Margin="-200,0,0,-100" Click="Button_Stop_Click" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center" Width="60"/>
 
     </Grid>
 </Window>

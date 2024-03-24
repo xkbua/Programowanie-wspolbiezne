@@ -11,9 +11,9 @@ namespace Logic
         public int Width { get; set; }
         public int Height { get; set; }
 
-        public Ball[] Balls { get; set; }
+        public BallLogic[] Balls { get; set; }
 
-        public Board(int width, int height, Ball[] balls)
+        public Board(int width, int height, BallLogic[] balls)
         {
             Width = width;
             Height = height;

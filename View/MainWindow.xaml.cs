@@ -13,9 +13,7 @@ using System.Windows.Threading;
 
 namespace View
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+
     public partial class MainWindow : Window
     {
         private Board board;
@@ -25,25 +23,24 @@ namespace View
         {
             InitializeComponent();
 
-            timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromMilliseconds(20); // Ustawienie interwału odświeżania na 50 milisekund (20 FPS)
+            timer = new DispatcherTimer(DispatcherPriority.Normal);
+            timer.Interval = TimeSpan.FromMilliseconds(20); 
             timer.Tick += Timer_Tick;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             int number = Convert.ToInt32(NumberTextBox.Text);
-            Ball[] balls = new Ball[number];
+            BallLogic[] balls = new BallLogic[number];
 
             for(int i = 0; i < number; i++) 
             {
-                Ball ball = new Ball(Convert.ToString(number), 200, 200);
+                BallLogic ball = new BallLogic(Convert.ToString(number), 175, 175);
                 balls[i] = ball;
             }
 
             board = new Board(175, 175, balls);
 
-            // Rozpoczęcie odświeżania
             timer.Start();
         }
 
@@ -54,7 +51,6 @@ namespace View
 
             DrawBalls();
         }
-
 
         private void DrawBalls()
         {
@@ -72,5 +68,11 @@ namespace View
                 MyCanvas.Children.Add(ellipse);
             }
         }
+
+        private void Button_Stop_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
     }
 }
