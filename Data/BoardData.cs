@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Data
 {
-    public abstract class BallData
+    public abstract class BoardData
     {
-        public const int THREAD_SLEEP_TIME = 20;
+        public const int WIDTH = 175;
+        public const int HEIGHT = 175;
     }
 }

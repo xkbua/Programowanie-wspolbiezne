@@ -1,4 +1,5 @@
-﻿using Logic;
+﻿using Data;
+using Logic;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -24,7 +25,7 @@ namespace View
             InitializeComponent();
 
             timer = new DispatcherTimer(DispatcherPriority.Normal);
-            timer.Interval = TimeSpan.FromMilliseconds(20); 
+            timer.Interval = TimeSpan.FromMilliseconds(BallData.THREAD_SLEEP_TIME);
             timer.Tick += Timer_Tick;
         }
 
@@ -35,11 +36,11 @@ namespace View
 
             for(int i = 0; i < number; i++) 
             {
-                BallLogic ball = new BallLogic(Convert.ToString(number), 175, 175);
+                BallLogic ball = new BallLogic(Convert.ToString(number));
                 balls[i] = ball;
             }
 
-            board = new Board(175, 175, balls);
+            board = new Board(balls);
 
             timer.Start();
         }
@@ -47,8 +48,6 @@ namespace View
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            board.Move();
-
             DrawBalls();
         }
 

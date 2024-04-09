@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Data;
 
 namespace Logic
 {
@@ -13,21 +14,17 @@ namespace Logic
 
         public BallLogic[] Balls { get; set; }
 
-        public Board(int width, int height, BallLogic[] balls)
+        public Board(BallLogic[] balls)
         {
-            Width = width;
-            Height = height;
+            Width = BoardData.WIDTH;
+            Height = BoardData.HEIGHT;
             Balls = balls;
         }
 
-        public void Move()
+        public void BallPositionChangedHandler(object sender, BallPositionChangedEventArgs e)
         {
-            for (int i = 0; i < Balls.Length; i++)
-            {
-                Balls[i].NextState(Width, Height);
-            }
+            // Zmiana pozycji kulki - zaimplementuj odpowiednią logikę
+            Console.WriteLine($"Ball {e.BallId} changed position to ({e.NewXPosition}, {e.NewYPosition})");
         }
-
-
     }
 }
