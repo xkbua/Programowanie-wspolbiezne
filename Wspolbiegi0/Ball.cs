@@ -17,7 +17,6 @@ namespace Logic
         public float XVelocity { get; set; }
         public float YVelocity { get; set; }
 
-        // Dodaj zdarzenie do informowania o zmianie pozycji kulki
         public event EventHandler<BallPositionChangedEventArgs> BallPositionChanged;
 
         public BallLogic(string id)
@@ -31,7 +30,6 @@ namespace Logic
             XVelocity = rand.Next(-5, 5);
             YVelocity = rand.Next(-5, 5);
 
-            // Uruchom wątek do automatycznej aktualizacji pozycji
             Thread thread = new Thread(() => UpdatePosition());
             thread.IsBackground = true;
             thread.Start();
