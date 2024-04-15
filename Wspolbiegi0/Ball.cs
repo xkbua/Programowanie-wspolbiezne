@@ -57,10 +57,9 @@ namespace Logic
             {
                 NextState();
 
-                // Informuj o zmianie pozycji kulki
                 OnBallPositionChanged(new BallPositionChangedEventArgs(Id, XPosition, YPosition));
 
-                Thread.Sleep(BallData.THREAD_SLEEP_TIME); // Interwał czasowy - aktualizacja co 1 sekundę
+                Thread.Sleep(BallData.THREAD_SLEEP_TIME);
             }
         }
 

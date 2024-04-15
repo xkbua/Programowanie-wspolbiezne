@@ -23,7 +23,6 @@ namespace Logic
 
         public void BallPositionChangedHandler(object sender, BallPositionChangedEventArgs e)
         {
-            // Zmiana pozycji kulki - zaimplementuj odpowiednią logikę
             Console.WriteLine($"Ball {e.BallId} changed position to ({e.NewXPosition}, {e.NewYPosition})");
         }
     }
