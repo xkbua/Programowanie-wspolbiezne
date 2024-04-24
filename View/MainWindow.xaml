@@ -9,8 +9,7 @@
     <Grid>
         <Button Content="Start" Margin="-200,0,0,0" Click="Button_Click" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center" Width="60"/>
         <TextBox Name="NumberTextBox" Margin="-200,0,0,100" TextWrapping="Wrap" Text="3" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center" Width="60" TextAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <Canvas Name="MyCanvas" Width="175" Margin="0,-10,-110,0" HorizontalAlignment="Center" Height="175" VerticalAlignment="Center"/>
-        <Rectangle Canvas.Left="10" Stroke="Black" Canvas.Top="10" Margin="0,0,-120,0" Height="185" VerticalAlignment="Center" HorizontalAlignment="Center" Width="185"/>
+        <Canvas Name="MyCanvas" Width="175" Margin="0,0,-120,0" HorizontalAlignment="Center" Height="175" VerticalAlignment="Center" Background="Red" />
         <Button Content="Stop" Margin="-200,0,0,-100" Click="Button_Stop_Click" Height="30" VerticalAlignment="Center" HorizontalAlignment="Center" Width="60"/>
 
     </Grid>

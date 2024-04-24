@@ -21,9 +21,6 @@ namespace Logic
             Balls = balls;
         }
 
-        public void BallPositionChangedHandler(object sender, BallPositionChangedEventArgs e)
-        {
-            Console.WriteLine($"Ball {e.BallId} changed position to ({e.NewXPosition}, {e.NewYPosition})");
-        }
+        
     }
 }
