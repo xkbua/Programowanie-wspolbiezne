@@ -27,24 +27,26 @@ namespace Logic
 
             Id = id;
             
-            int modifier = rand.Next(2, 8);
+            int modifier = rand.Next(3, 8);
             Radius = modifier * BallData.RADIUS;
-            Mass = modifier * BallData.MASS;
+            Mass = (int) (Math.PI * Radius * Radius);
 
-            XPosition = rand.Next(0 + Radius, BoardData.WIDTH - Radius);
-            YPosition = rand.Next(0 + Radius, BoardData.HEIGHT - Radius);
+            XPosition = rand.Next(Radius, BoardData.WIDTH - Radius);
+            YPosition = rand.Next(Radius, BoardData.HEIGHT - Radius);
 
-            XVelocity = rand.Next(-5, 5);
-            YVelocity = rand.Next(-5, 5);
+            XVelocity = (float) rand.NextDouble() * rand.Next(2) * 2 - 1;
+            YVelocity = (float) rand.NextDouble() * rand.Next(2) * 2 - 1;
 
             Thread thread = new Thread(() => UpdatePosition());
             thread.IsBackground = true;
             thread.Start();
         }
 
-        public BallLogic(int id, float xPosition, float yPosition, float xVelocity, float yVelocity)
+        public BallLogic(int id, int mass, int radius, float xPosition, float yPosition, float xVelocity, float yVelocity)
         {
             Id = id;
+            Mass = mass;
+            Radius = radius;
             XPosition = xPosition;
             YPosition = yPosition;
             XVelocity = xVelocity;
@@ -56,15 +58,15 @@ namespace Logic
             BallPositionChanged?.Invoke(this, e);
         }
 
-        private void UpdatePosition()
+        private async Task UpdatePosition()
         {
             while (true)
             {
+                await Task.Delay(BallData.THREAD_SLEEP_TIME);
+
                 NextState();
 
                 OnBallPositionChanged(new BallPositionChangedEventArgs(Id, XPosition, YPosition, Radius, Mass));
-
-                Thread.Sleep(BallData.THREAD_SLEEP_TIME);
             }
         }
 
@@ -73,14 +75,28 @@ namespace Logic
             float NextX = XPosition + XVelocity;
             float NextY = YPosition + YVelocity;
 
-            if (NextX < 0 + Radius || NextX > BoardData.WIDTH - Radius)
+            if (NextX <= Radius)
             {
                 XVelocity *= -1;
+                XPosition = Radius;
             }
 
-            if (NextY < 0 + Radius || NextY > BoardData.HEIGHT - Radius)
+            if (NextX >= BoardData.WIDTH - Radius)
+            {
+                XVelocity *= -1;
+                XPosition = BoardData.WIDTH - Radius;
+            }
+
+            if (NextY <= Radius)
             {
                 YVelocity *= -1;
+                YPosition = Radius;
+            }
+
+            if (NextY >= BoardData.HEIGHT - Radius)
+            {
+                YVelocity *= -1;
+                YPosition = BoardData.HEIGHT - Radius;
             }
 
             XPosition += XVelocity;

@@ -37,13 +37,13 @@ namespace View
             }
             
             int number = Convert.ToInt32(NumberTextBox.Text);
-            BallLogic[] balls = new BallLogic[number];
+            List<BallLogic> balls = new List<BallLogic> { };
             board = new Board(balls);
             for(int i = 0; i < number; i++) 
             {
                 BallLogic ball = new BallLogic(i);
                 ball.BallPositionChanged += BallPositionChangedHandler;
-                balls[i] = ball;
+                balls.Add(ball);
                 Ellipse ellipse = new Ellipse();
                 ellipse.StrokeThickness = 1;
                 ellipse.Stroke = Brushes.Black;
@@ -54,12 +54,14 @@ namespace View
                 Canvas.SetTop(ellipse, ball.YPosition - ball.Radius);
                 MyCanvas.Children.Add(ellipse);
             }
+
         }
 
         public void BallPositionChangedHandler(object sender, BallPositionChangedEventArgs e)
         {
             Dispatcher.Invoke(() =>
             {
+                board.CheckCollisions(board.Balls);
                 Canvas.SetLeft(MyCanvas.Children[e.BallId], e.NewXPosition - e.Radius);
                 Canvas.SetTop(MyCanvas.Children[e.BallId], e.NewYPosition - e.Radius);
             });
@@ -74,6 +76,5 @@ namespace View
 
             Application.Current.Shutdown();
         }
-
     }
 }
