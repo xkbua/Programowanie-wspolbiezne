@@ -1,9 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using System.Text;
+using System.Text.Json;
+using System.Text.Json.Nodes;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Data;
+
 
 namespace Logic
 {
@@ -23,19 +29,22 @@ namespace Logic
 
         public void CheckCollisions(List<BallLogic> balls)
         {
-            lock (balls)
+            for (int i = 0; i < balls.Count; i++)
             {
-                for (int i = 0; i < balls.Count; i++)
+                BallLogic ball1 = balls[i];
+                for (int j = i + 1; j < balls.Count; j++)
                 {
-                    BallLogic ball1 = balls[i];
-                    for (int j = i + 1; j < balls.Count; j++)
+                    BallLogic ball2 = balls[j];
+
+                    List<BallLogic> TwoBalls = [ball1, ball2];
+                    lock(TwoBalls)
                     {
-                        BallLogic ball2 = balls[j];
                         if (IsCollision(ball1, ball2))
                         {
+                            LogCollision(ball1, ball2);
                             CalcCollision(ball1, ball2);
                         }
-                    }
+                    } 
                 }
             }
         }
@@ -91,5 +100,44 @@ namespace Logic
             }
         }
 
+        private async void LogCollision(BallLogic ball1, BallLogic ball2)
+        {
+            var Collisionlog = new
+            {
+                CollisionTime = DateTime.Now,
+
+                Ball1Id = ball1.Id,
+                Ball1Xposition = ball1.XPosition,
+                Ball1Yposition = ball1.YPosition,
+
+                Ball2Id = ball2.Id,
+                Ball2Xposition = ball2.XPosition,
+                Ball2Yposition = ball2.YPosition,
+            };
+            
+            string jsonString = JsonSerializer.Serialize(Collisionlog, new JsonSerializerOptions { WriteIndented = true });
+            jsonString += ",";
+            await LogCollisionAsync(jsonString);
+             
+        }
+
+        private static SemaphoreSlim semaphoreSlim = new SemaphoreSlim(1, 1);
+
+        private async Task LogCollisionAsync(string log)
+        {
+            await semaphoreSlim.WaitAsync();
+
+            try
+            {
+                using (StreamWriter sw = new StreamWriter(BallData.PATH, true))
+                {
+                    await sw.WriteLineAsync(log);
+                }
+            }
+            finally
+            {
+                semaphoreSlim.Release();
+            }
+        }
     }
 }

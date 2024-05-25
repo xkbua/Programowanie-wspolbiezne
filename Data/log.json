@@ -1,0 +1,27 @@
+{
+  "CollisionTime": "2024-05-25T15:38:07.3132517+02:00",
+  "Ball1Id": 1,
+  "Ball1Xposition": 31.997221,
+  "Ball1Yposition": 75,
+  "Ball2Id": 2,
+  "Ball2Xposition": 41,
+  "Ball2Yposition": 61
+},
+{
+  "CollisionTime": "2024-05-25T15:38:07.4354035+02:00",
+  "Ball1Id": 0,
+  "Ball1Xposition": 78,
+  "Ball1Yposition": 79,
+  "Ball2Id": 2,
+  "Ball2Xposition": 58.059566,
+  "Ball2Yposition": 65.13198
+},
+{
+  "CollisionTime": "2024-05-25T15:38:08.2917605+02:00",
+  "Ball1Id": 0,
+  "Ball1Xposition": 137.0852,
+  "Ball1Yposition": 118.1861,
+  "Ball2Id": 2,
+  "Ball2Xposition": 111.266685,
+  "Ball2Yposition": 116.089615
+},
