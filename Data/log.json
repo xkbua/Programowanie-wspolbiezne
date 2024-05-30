@@ -1,27 +1,87 @@
 {
-  "CollisionTime": "2024-05-25T15:38:07.3132517+02:00",
-  "Ball1Id": 1,
-  "Ball1Xposition": 31.997221,
-  "Ball1Yposition": 75,
-  "Ball2Id": 2,
-  "Ball2Xposition": 41,
-  "Ball2Yposition": 61
-},
+  "LogTime": "2024-05-30T12:48:01.4790453+02:00",
+  "BallsInfo": [
+    {
+      "BallId": 0,
+      "XPosition": 158,
+      "YPosition": 112.76827,
+      "XVelocity": -1,
+      "YVelocity": 0.76827157,
+      "Radius": 10
+    },
+    {
+      "BallId": 1,
+      "XPosition": 108,
+      "YPosition": 90,
+      "XVelocity": -1,
+      "YVelocity": -0.46363193,
+      "Radius": 10
+    },
+    {
+      "BallId": 2,
+      "XPosition": 57,
+      "YPosition": 11,
+      "XVelocity": -1,
+      "YVelocity": -1,
+      "Radius": 10
+    }
+  ]
+}
 {
-  "CollisionTime": "2024-05-25T15:38:07.4354035+02:00",
-  "Ball1Id": 0,
-  "Ball1Xposition": 78,
-  "Ball1Yposition": 79,
-  "Ball2Id": 2,
-  "Ball2Xposition": 58.059566,
-  "Ball2Yposition": 65.13198
-},
+  "LogTime": "2024-05-30T12:48:02.4665429+02:00",
+  "BallsInfo": [
+    {
+      "BallId": 0,
+      "XPosition": 26,
+      "YPosition": 115.06266,
+      "XVelocity": -1,
+      "YVelocity": -0.76827157,
+      "Radius": 10
+    },
+    {
+      "BallId": 1,
+      "XPosition": 46,
+      "YPosition": 28.337105,
+      "XVelocity": 1,
+      "YVelocity": -0.46363193,
+      "Radius": 10
+    },
+    {
+      "BallId": 2,
+      "XPosition": 97,
+      "YPosition": 143,
+      "XVelocity": 1,
+      "YVelocity": 1,
+      "Radius": 10
+    }
+  ]
+}
 {
-  "CollisionTime": "2024-05-25T15:38:08.2917605+02:00",
-  "Ball1Id": 0,
-  "Ball1Xposition": 137.0852,
-  "Ball1Yposition": 118.1861,
-  "Ball2Id": 2,
-  "Ball2Xposition": 111.266685,
-  "Ball2Yposition": 116.089615
-},
+  "LogTime": "2024-05-30T12:48:03.4660628+02:00",
+  "BallsInfo": [
+    {
+      "BallId": 0,
+      "XPosition": 130,
+      "YPosition": 11.345893,
+      "XVelocity": 1,
+      "YVelocity": -0.76827157,
+      "Radius": 10
+    },
+    {
+      "BallId": 1,
+      "XPosition": 148,
+      "YPosition": 54.508625,
+      "XVelocity": -1,
+      "YVelocity": 0.46363193,
+      "Radius": 10
+    },
+    {
+      "BallId": 2,
+      "XPosition": 97,
+      "YPosition": 51,
+      "XVelocity": -1,
+      "YVelocity": -1,
+      "Radius": 10
+    }
+  ]
+}

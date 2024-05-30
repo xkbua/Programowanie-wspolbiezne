@@ -8,6 +8,8 @@ using System.Text.Json;
 using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using System.Threading;
+using System.Timers;
 using Data;
 
 
@@ -20,11 +22,16 @@ namespace Logic
 
         public List<BallLogic> Balls { get; set; }
 
+        private System.Threading.Timer timer;
+
+        private static SemaphoreSlim semaphoreSlim = new SemaphoreSlim(1, 1);
+
         public Board(List<BallLogic> balls)
         {
             Width = BoardData.WIDTH;
             Height = BoardData.HEIGHT;
             Balls = balls;
+            timer = new System.Threading.Timer(LogInfo, null, 0, 1000);
         }
 
         public void CheckCollisions(List<BallLogic> balls)
@@ -41,11 +48,46 @@ namespace Logic
                     {
                         if (IsCollision(ball1, ball2))
                         {
-                            LogCollision(ball1, ball2);
                             CalcCollision(ball1, ball2);
                         }
                     } 
                 }
+            }
+        }
+
+        private async void LogInfo(object stateInfo)
+        {
+            var Infolog = new
+            {
+                LogTime = DateTime.Now,
+                BallsInfo = Balls.Select(ball => new
+                {
+                    BallId = ball.Id,
+                    XPosition = ball.XPosition,
+                    YPosition = ball.YPosition,
+                    XVelocity = ball.XVelocity,
+                    YVelocity = ball.YVelocity,
+                    Radius = ball.Radius
+                }).ToList()
+            };
+            string jsonString = JsonSerializer.Serialize(Infolog, new JsonSerializerOptions { WriteIndented = true });
+            await LogInfoAsync(jsonString);
+        }
+
+        private async Task LogInfoAsync(string log)
+        {
+            await semaphoreSlim.WaitAsync();
+
+            try
+            {
+                using (StreamWriter sw = new StreamWriter(BallData.PATH, true))
+                {
+                    await sw.WriteLineAsync(log);
+                }
+            }
+            finally
+            {
+                semaphoreSlim.Release();
             }
         }
 
@@ -97,46 +139,6 @@ namespace Logic
                 ball1.YPosition += overlap * (ball1.YPosition - ball2.YPosition) / distance;
                 ball2.XPosition -= overlap * (ball1.XPosition - ball2.XPosition) / distance;
                 ball2.YPosition -= overlap * (ball1.YPosition - ball2.YPosition) / distance;
-            }
-        }
-
-        private async void LogCollision(BallLogic ball1, BallLogic ball2)
-        {
-            var Collisionlog = new
-            {
-                CollisionTime = DateTime.Now,
-
-                Ball1Id = ball1.Id,
-                Ball1Xposition = ball1.XPosition,
-                Ball1Yposition = ball1.YPosition,
-
-                Ball2Id = ball2.Id,
-                Ball2Xposition = ball2.XPosition,
-                Ball2Yposition = ball2.YPosition,
-            };
-            
-            string jsonString = JsonSerializer.Serialize(Collisionlog, new JsonSerializerOptions { WriteIndented = true });
-            jsonString += ",";
-            await LogCollisionAsync(jsonString);
-             
-        }
-
-        private static SemaphoreSlim semaphoreSlim = new SemaphoreSlim(1, 1);
-
-        private async Task LogCollisionAsync(string log)
-        {
-            await semaphoreSlim.WaitAsync();
-
-            try
-            {
-                using (StreamWriter sw = new StreamWriter(BallData.PATH, true))
-                {
-                    await sw.WriteLineAsync(log);
-                }
-            }
-            finally
-            {
-                semaphoreSlim.Release();
             }
         }
     }
