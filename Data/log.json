@@ -1,26 +1,26 @@
 {
-  "LogTime": "2024-05-30T12:48:01.4790453+02:00",
+  "LogTime": "2024-06-03T12:21:09.8587018+02:00",
   "BallsInfo": [
     {
       "BallId": 0,
-      "XPosition": 158,
-      "YPosition": 112.76827,
+      "XPosition": 30,
+      "YPosition": 128,
       "XVelocity": -1,
-      "YVelocity": 0.76827157,
+      "YVelocity": -1,
       "Radius": 10
     },
     {
       "BallId": 1,
-      "XPosition": 108,
-      "YPosition": 90,
+      "XPosition": 57,
+      "YPosition": 165.76883,
       "XVelocity": -1,
-      "YVelocity": -0.46363193,
-      "Radius": 10
+      "YVelocity": -0.23117286,
+      "Radius": 6
     },
     {
       "BallId": 2,
-      "XPosition": 57,
-      "YPosition": 11,
+      "XPosition": 70,
+      "YPosition": 33,
       "XVelocity": -1,
       "YVelocity": -1,
       "Radius": 10
@@ -28,28 +28,28 @@
   ]
 }
 {
-  "LogTime": "2024-05-30T12:48:02.4665429+02:00",
+  "LogTime": "2024-06-03T12:21:10.8171257+02:00",
   "BallsInfo": [
     {
       "BallId": 0,
-      "XPosition": 26,
-      "YPosition": 115.06266,
-      "XVelocity": -1,
-      "YVelocity": -0.76827157,
+      "XPosition": 110,
+      "YPosition": 12,
+      "XVelocity": 1,
+      "YVelocity": 1,
       "Radius": 10
     },
     {
       "BallId": 1,
-      "XPosition": 46,
-      "YPosition": 28.337105,
+      "XPosition": 76,
+      "YPosition": 138.02835,
       "XVelocity": 1,
-      "YVelocity": -0.46363193,
-      "Radius": 10
+      "YVelocity": -0.23117286,
+      "Radius": 6
     },
     {
       "BallId": 2,
-      "XPosition": 97,
-      "YPosition": 143,
+      "XPosition": 72,
+      "YPosition": 109,
       "XVelocity": 1,
       "YVelocity": 1,
       "Radius": 10
@@ -57,30 +57,88 @@
   ]
 }
 {
-  "LogTime": "2024-05-30T12:48:03.4660628+02:00",
+  "LogTime": "2024-06-03T12:21:11.8166648+02:00",
   "BallsInfo": [
     {
       "BallId": 0,
-      "XPosition": 130,
-      "YPosition": 11.345893,
-      "XVelocity": 1,
-      "YVelocity": -0.76827157,
+      "XPosition": 48.673523,
+      "YPosition": 118.04164,
+      "XVelocity": -1.7559986,
+      "YVelocity": 0.5202114,
       "Radius": 10
     },
     {
       "BallId": 1,
-      "XPosition": 148,
-      "YPosition": 54.508625,
-      "XVelocity": -1,
-      "YVelocity": 0.46363193,
-      "Radius": 10
+      "XPosition": 151.11852,
+      "YPosition": 93.81637,
+      "XVelocity": -0.6622747,
+      "YVelocity": -0.13306898,
+      "Radius": 6
     },
     {
       "BallId": 2,
-      "XPosition": 97,
-      "YPosition": 51,
-      "XVelocity": -1,
-      "YVelocity": -1,
+      "XPosition": 145.6292,
+      "YPosition": 163.05435,
+      "XVelocity": -0.8422084,
+      "YVelocity": -0.38913077,
+      "Radius": 10
+    }
+  ]
+}
+{
+  "LogTime": "2024-06-03T12:21:12.8157785+02:00",
+  "BallsInfo": [
+    {
+      "BallId": 0,
+      "XPosition": 104.60512,
+      "YPosition": 74.33205,
+      "XVelocity": 0.37012562,
+      "YVelocity": -1.439173,
+      "Radius": 10
+    },
+    {
+      "BallId": 1,
+      "XPosition": 62.37338,
+      "YPosition": 75.98473,
+      "XVelocity": -0.6622747,
+      "YVelocity": -0.13306898,
+      "Radius": 6
+    },
+    {
+      "BallId": 2,
+      "XPosition": 134.89096,
+      "YPosition": 43.19751,
+      "XVelocity": 0.5436646,
+      "YVelocity": -1.3080924,
+      "Radius": 10
+    }
+  ]
+}
+{
+  "LogTime": "2024-06-03T12:21:13.8171348+02:00",
+  "BallsInfo": [
+    {
+      "BallId": 0,
+      "XPosition": 148.2867,
+      "YPosition": 121.55859,
+      "XVelocity": 0.23815137,
+      "YVelocity": 1.0457988,
+      "Radius": 10
+    },
+    {
+      "BallId": 1,
+      "XPosition": 37.789185,
+      "YPosition": 58.286335,
+      "XVelocity": 0.6622747,
+      "YVelocity": -0.13306898,
+      "Radius": 6
+    },
+    {
+      "BallId": 2,
+      "XPosition": 128.1415,
+      "YPosition": 161.59708,
+      "XVelocity": -0.4116903,
+      "YVelocity": -1.7014667,
       "Radius": 10
     }
   ]

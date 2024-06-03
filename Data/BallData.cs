@@ -11,6 +11,6 @@ namespace Data
         public const int THREAD_SLEEP_TIME = 7;
         public const int RADIUS = 2;
         public const int MASS = 1;
-        public const string PATH = "C:\\studia\\sem4\\WSPOLBIEGI\\Data\\log.json";
+        public const string PATH = "C:\\Users\\pc\\Source\\Repos\\Programowanie-wspolbiezne\\Data\\log.json";
     }
 }
